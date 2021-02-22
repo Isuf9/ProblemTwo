@@ -1,0 +1,26 @@
+﻿@model IEnumerable<ProblemTwo.Models.URL>
+<div>
+    <h1 class="text-center">View details</h1>
+</div>
+<div>
+    <h3 class="text-center">Your URL shorten are:</h3>
+
+    <table class="table">
+        @* <thead>Old url</thead>*@
+        <thead>Short url</thead>
+        <thead>Expired link date</thead>
+        <thead>Create on date</thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                @* <td>@item.longUrl</td>*@
+                <td>@item.shortUrl</td>
+                <td>@item.expireLink</td>
+                <td>@item.createOnDate</td>
+            </tr>
+        }
+        </table>
+    
+  
+</div>

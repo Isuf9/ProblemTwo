@@ -1,0 +1,45 @@
+﻿@model ProblemTwo.Models.URL
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+@*<div><button asp-action="GetShortenUrl" asp-controller="UrlShort" asp-route="1">Call url</button></div>*@
+
+@*<a href="@Url.Action("GetShortenUrl", "UrlShort", new { idProduct = 1, nameOfProduct = "msi", category = "lotop", stock= 1 })">Get url</a>*@
+
+<div class="row">
+    <a href="https://video.gjirafa.com/rtv-dukagjini-live?utm_source=gjvideo&utm_medium=HomepageSection&utm_campaign=Live+TV&utm_term=position_3">Tv Dukagjini Live(Long URL)</a>
+</div>
+
+
+<form method="post">
+    <div>
+        <div class="row">
+            <label>Enter long url:</label>
+            <label>Enter expired link date:</label>
+        </div>
+        <div class="row">
+            <input asp-for="longUrl" class="align-content-center" type="text" width="50px;" style="background-color: ghostwhite" placeholder="Type url here..." />
+            <input type="datetime" placeholder="Month/day/year" asp-for="expireLink" />
+            <button class="btn btn-primary" style="margin-left: 20px;" type="submit" asp-action="GenerateURLshorter" asp-controller="Home">Generate new URLs</button>
+        </div>
+    </div>
+</form>
+
+
+    @*<a href="@ViewBag.OldUrl">
+        @ViewBag.ShorterUrl</p>*@
+<div style="border: 2px solid black; margin-top: 30px">
+    <div style="border: 1px solid black">
+        Url short:
+        <a href="@ViewBag.OldUrl" />@ViewBag.First </a>
+    </div>
+    @*<button class="btn btn-secondary" asp-action="AllURLs" asp-controller="home" asp-route="@ViewBag.CreatedBy">See all url generated</button>*@
+<a href="@Url.Action("AllURLsGenerated", "Home", new { createById = ViewBag.CreatedBy})" style="margin-top:10px;">See all url generated</a>
+</div>
